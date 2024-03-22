@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myblog.mapper.BlogUserMapper">
+    <sql id="element">
+        phone,password,username,avatar,create_time,update_time
+    </sql>
+    
+    <select id="getUserByUsername" resultType="com.electricity.model.entity.BlogUser">
+        select * from blog_user
+            <where>
+                phone = #{phone}
+            </where>
+    </select>
+    
+    <insert id="registerUser" parameterType="com.electricity.model.entity.BlogUser">
+        insert into blog_user(
+                    <include refid="element"></include>
+        )
+        values (
+                    #{phone},
+                    #{password},
+                    #{username},
+                    #{avatar},
+                    now(),
+                    now()
+        )
+    </insert>
+</mapper>
