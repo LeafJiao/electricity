@@ -41,13 +41,6 @@ knife4j:
   setting:
     language: zh_cn
     swagger-model-name: 实体类列表
-  documents:
-    - name: 标题1
-      locations: classpath:markdown/*
-      group: 测试
-    - name: 标题2
-      locations: classpath:markdown1/*
-      group: 用户模块
   basic:
     enable: false
     username: abc

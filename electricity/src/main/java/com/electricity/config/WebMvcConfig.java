@@ -18,7 +18,7 @@ import java.util.List;
  * @description: 网页拦截器
  */
 @Configuration
-public class WebConfig implements WebMvcConfigurer {
+public class WebMvcConfig implements WebMvcConfigurer {
 
     @Resource
     private LoginInterceptor loginInterceptor;
@@ -34,11 +34,13 @@ public class WebConfig implements WebMvcConfigurer {
         Collections.addAll(excludePath,
                 "/user/register",
                 "/user/login",
-                "/static/**",
-                "/webjars/**",
-                "/doc.html",
+//                "/favicon.ico",
+                "/v2/**",
                 "/v3/**",
-                "/swagger-ui.html/**"
+//                "/swagger-resources/**",
+                "/swagger-ui/**",
+                "/webjars/**",
+                "/doc.html"
                 );
         // 登录和注册为接口不拦截
         registry.addInterceptor(loginInterceptor)

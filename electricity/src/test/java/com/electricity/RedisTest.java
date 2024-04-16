@@ -21,7 +21,7 @@ public class RedisTest {
 
     @Test
     public void test() {
-        ValueOperations<String, String> opsForValue = stringRedisTemplate.opsForValue();
-        System.out.println(opsForValue.get("aaa"));
+//        ValueOperations<String, String> opsForValue = stringRedisTemplate.opsForValue();
+        System.out.println(stringRedisTemplate.delete("token"));
     }
 }

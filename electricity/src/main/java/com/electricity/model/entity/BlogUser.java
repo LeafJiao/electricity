@@ -1,6 +1,8 @@
 package com.electricity.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -17,7 +19,9 @@ import java.time.LocalDateTime;
 
 @Data
 @Accessors(chain = true)
+@Tag(name = "用户信息")
 public class BlogUser {
+    @Parameter(name = "用户id")
     private Integer id;
 
     private String phone;

@@ -40,6 +40,7 @@ public class BlogUserController {
         return Result.success();
     }
 
+    @Operation(summary = "用户登录")
     @PostMapping("/login")
     public Result login(@RequestBody BlogUserDto blogUserDto) {
         TokenVo tokenVo = blogUserService.login(blogUserDto);
