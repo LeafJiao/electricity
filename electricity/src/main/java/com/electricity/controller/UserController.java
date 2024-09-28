@@ -23,7 +23,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user")
 @Tag(name = "用户模块")
-public class BlogUserController {
+public class UserController {
 
     @Resource
     private UserService blogUserService;
