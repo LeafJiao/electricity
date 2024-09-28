@@ -1,7 +1,7 @@
 package com.electricity;
 
-import com.electricity.model.entity.BlogUser;
-import com.electricity.mapper.BlogUserMapper;
+import com.electricity.model.entity.User;
+import com.electricity.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,12 +18,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class MybatisTest {
 
     @Autowired
-    private BlogUserMapper blogUserMapper;
+    private UserMapper userMapper;
     @Test
     public void test() {
-        BlogUser blogUser = new BlogUser();
-        blogUser.setId(1);
-        blogUser.setUsername("jw");
-        blogUser.setAvatar("http://...");
+        User user = new User();
+        user.setId(1);
+        user.setUsername("jw");
+        user.setAvatar("http://...");
     }
 }

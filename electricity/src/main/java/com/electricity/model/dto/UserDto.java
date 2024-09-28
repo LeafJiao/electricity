@@ -10,7 +10,7 @@ import lombok.Data;
  * @description: 用户接收前端信息数据
  */
 @Data
-public class BlogUserDto {
+public class UserDto {
     private String phone;
 
     private String password;

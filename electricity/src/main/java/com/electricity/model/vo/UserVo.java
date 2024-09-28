@@ -10,7 +10,7 @@ import lombok.Data;
  * @description: 前端展示用户信息
  */
 @Data
-public class BlogUserVo {
+public class UserVo {
     private String phone;
     private String username;
     private String avatar;
