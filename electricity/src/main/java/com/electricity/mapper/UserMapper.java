@@ -1,10 +1,10 @@
 package com.electricity.mapper;
 
-import com.electricity.model.entity.BlogUser;
+import com.electricity.model.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface BlogUserMapper {
+public interface UserMapper {
 
 
     /**
@@ -12,11 +12,11 @@ public interface BlogUserMapper {
      * @param phone
      * @return
      */
-    BlogUser getUserByUsername(String phone);
+    User getUserByUsername(String phone);
 
     /**
      * 注册
      * @return
      */
-    int registerUser(BlogUser blogUser);
+    int registerUser(User user);
 }

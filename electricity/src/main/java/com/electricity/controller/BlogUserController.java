@@ -1,7 +1,7 @@
 package com.electricity.controller;
 
-import com.electricity.model.dto.BlogUserDto;
-import com.electricity.service.IBlogUserService;
+import com.electricity.model.dto.UserDto;
+import com.electricity.service.UserService;
 import com.electricity.utils.ThreadLocalUtil;
 import com.electricity.model.vo.Result;
 import com.electricity.model.vo.TokenVo;
@@ -26,7 +26,7 @@ import java.util.Map;
 public class BlogUserController {
 
     @Resource
-    private IBlogUserService blogUserService;
+    private UserService blogUserService;
 
     /**
      * 注册
@@ -42,8 +42,8 @@ public class BlogUserController {
 
     @Operation(summary = "用户登录")
     @PostMapping("/login")
-    public Result login(@RequestBody BlogUserDto blogUserDto) {
-        TokenVo tokenVo = blogUserService.login(blogUserDto);
+    public Result login(@RequestBody UserDto userDto) {
+        TokenVo tokenVo = blogUserService.login(userDto);
         return Result.success(tokenVo);
     }
 

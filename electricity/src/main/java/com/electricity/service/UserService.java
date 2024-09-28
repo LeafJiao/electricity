@@ -1,7 +1,7 @@
 package com.electricity.service;
 
 
-import com.electricity.model.dto.BlogUserDto;
+import com.electricity.model.dto.UserDto;
 import com.electricity.model.vo.TokenVo;
 
 /**
@@ -11,8 +11,8 @@ import com.electricity.model.vo.TokenVo;
  * @Date 2024/3/7 17:31
  * @description: 用户服务接口
  */
-public interface IBlogUserService{
+public interface UserService {
     void register(String username, String password);
 
-    TokenVo login(BlogUserDto blogUserDto);
+    TokenVo login(UserDto userDto);
 }

@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @Data
 @Accessors(chain = true)
 @Tag(name = "用户信息")
-public class BlogUser {
+public class User {
     @Parameter(name = "用户id")
     private Integer id;
 
