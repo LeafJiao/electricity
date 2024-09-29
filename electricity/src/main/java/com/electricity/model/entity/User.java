@@ -1,39 +1,66 @@
 package com.electricity.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.tags.Tag;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import java.io.Serializable;
+import java.util.Date;
 import lombok.Data;
-import lombok.experimental.Accessors;
-
-import java.time.LocalDateTime;
-
 
 /**
- * @Title: BlogUser
- * @Author JiaoWei
- * @Package com.myblog.entity
- * @Date 2024/3/6 19:34
- * @description: 用户信息
+ *
+ * @TableName user
  */
-
+@TableName(value ="user")
 @Data
-@Accessors(chain = true)
-@Tag(name = "用户信息")
-public class User {
-    @Parameter(name = "用户id")
-    private Integer id;
+public class User implements Serializable {
+    /**
+     * 用户id
+     */
+    @TableId(type = IdType.AUTO)
+    private Long id;
 
+    /**
+     * 用户手机号
+     */
     private String phone;
 
+    /**
+     * 密码
+     */
     private String password;
 
+    /**
+     * 用户名
+     */
     private String username;
 
+    /**
+     * 头像
+     */
     private String avatar;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDateTime createTime;
+    /**
+     * 创建时间
+     */
+    private Date create_time;
 
-    private LocalDateTime updateTime;
+    /**
+     * 更新时间
+     */
+    private Date update_time;
+
+    /**
+     * 邮箱
+     */
+    private String email;
+
+    /**
+     * 逻辑删除 0-未删除, 1-删除
+     */
+    private Integer is_delete;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 }

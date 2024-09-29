@@ -22,7 +22,6 @@ public class MybatisTest {
     @Test
     public void test() {
         User user = new User();
-        user.setId(1);
         user.setUsername("jw");
         user.setAvatar("http://...");
     }

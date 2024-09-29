@@ -1,8 +1,9 @@
 package com.electricity.service.impl;
 
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.electricity.model.dto.UserDto;
-import com.electricity.model.dto.Constants;
+import com.electricity.constant.UserConstants;
 import com.electricity.model.entity.User;
 import com.electricity.exception.GlobalException;
 import com.electricity.mapper.UserMapper;
@@ -26,7 +27,7 @@ import java.util.concurrent.TimeUnit;
  * @description: 用户服务实现
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
     @Resource
     private UserMapper userMapper;
@@ -36,16 +37,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void register(String phone, String password) {
-        User user = userMapper.getUserByUsername(phone);
+        User user = userMapper.getUserByUserName(phone);
         if (user != null) {
             throw new GlobalException("该用户已存在");
         }
-        User blogUser = new User();
-        blogUser.setPhone(phone)
-                .setPassword(Md5Util.getMD5String(password))
-                .setUsername(Constants.username)
-                .setAvatar(Constants.avatar);
-        int i = userMapper.registerUser(blogUser);
+        User newUser = new User();
+        newUser.setPhone(phone);
+        newUser.setPassword(Md5Util.getMD5String(password));
+        newUser.setUsername(UserConstants.username);
+        newUser.setAvatar(UserConstants.avatar);
+        newUser.setCreate_time(new Date());
+        newUser.setUpdate_time(new Date());
+
+        int i = userMapper.registerUser(newUser);
         if (i != 1) {
             throw new GlobalException("注册失败");
         }
@@ -53,7 +57,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public TokenVo login(UserDto userDto) {
-        User user = userMapper.getUserByUsername(userDto.getPhone());
+        User user = userMapper.getUserByUserName(userDto.getPhone());
         if (user == null) {
             throw new GlobalException("账号不存在");
         }

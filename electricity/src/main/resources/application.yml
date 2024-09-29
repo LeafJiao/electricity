@@ -13,12 +13,23 @@ spring:
       port: 6379
       password: root
 
-mybatis:
-  configuration:
-    map-underscore-to-camel-case: true
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#mybatis:
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  type-aliases-package: com.electricity.entity
+#  mapper-locations: classpath:mapper/**/*.xml
+
+mybatis-plus:
   type-aliases-package: com.electricity.entity
-  mapper-locations: classpath:mappers/**/*.xml
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-delete-field: is_delete
 
 # springdoc-openapi项目配置
 springdoc:

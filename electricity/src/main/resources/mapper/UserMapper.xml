@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.electricity.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.electricity.model.entity.User">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+            <result property="username" column="username" jdbcType="VARCHAR"/>
+            <result property="avatar" column="avatar" jdbcType="VARCHAR"/>
+            <result property="create_time" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="update_time" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="is_delete" column="is_delete" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,phone,password,
+        username,avatar,create_time,
+        update_time,email,is_delete
+    </sql>
+
+
+    <select id="getUserByUserName" resultType="com.electricity.model.entity.User">
+        SELECT
+            <include refid="Base_Column_List"/>
+        FROM
+            user
+        WHERE
+            username = #{username}
+    </select>
+
+
+    <insert id="registerUser">
+        INSERT INTO
+            user(phone,password,username,avatar)
+        VALUES
+            (#{phone},#{password},#{username},#{avatar})
+    </insert>
+</mapper>

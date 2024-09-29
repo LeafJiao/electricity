@@ -1,10 +1,11 @@
 package com.electricity.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.electricity.model.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface UserMapper {
+public interface UserMapper extends BaseMapper<User> {
 
 
     /**
@@ -12,7 +13,7 @@ public interface UserMapper {
      * @param phone
      * @return
      */
-    User getUserByUsername(String phone);
+    User getUserByUserName(String phone);
 
     /**
      * 注册

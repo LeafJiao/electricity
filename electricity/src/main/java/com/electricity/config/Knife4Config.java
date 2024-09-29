@@ -38,7 +38,7 @@ public class Knife4Config {
             }
             if(openApi.getPaths()!=null){
                 openApi.addExtension("x-test123","333");
-                openApi.getPaths().addExtension("x-abb",RandomUtil.randomInt(1,100));
+                openApi.getPaths().addExtension("x-abb", RandomUtil.randomInt(1,100));
             }
 
         };
@@ -50,7 +50,6 @@ public class Knife4Config {
                 .info(new Info()
                         .title("电力现货交易平台API")
                         .version("1.0")
-
                         .description( "Knife4j集成springdoc-openapi")
                         .termsOfService("http://doc.xiaominfo.com")
                         .license(new License().name("Apache 2.0")
