@@ -14,12 +14,12 @@ import java.util.Map;
 
 
 /**
- * @Title: BlogUserController
+ * @Title: UserController
  * @Author JiaoWei
- * @Package com.myblog.controller
  * @Date 2024/3/9 16:14
  * @description: 用户控制层
  */
+
 @RestController
 @RequestMapping("/user")
 @Tag(name = "用户模块")
