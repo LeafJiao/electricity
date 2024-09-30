@@ -1,6 +1,8 @@
 package com.electricity.model.vo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @Title: BlogUserVo
@@ -10,6 +12,8 @@ import lombok.Data;
  * @description: 前端展示用户信息
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserVo {
     private String phone;
     private String username;

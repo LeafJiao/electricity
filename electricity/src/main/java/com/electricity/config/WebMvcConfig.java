@@ -34,13 +34,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
         Collections.addAll(excludePath,
                 "/user/register",
                 "/user/login",
-//                "/favicon.ico",
-                "/v2/**",
-                "/v3/**",
-//                "/swagger-resources/**",
                 "/swagger-ui/**",
-                "/webjars/**",
-                "/doc.html"
+                "/swagger-resources/**",
+                "/v3/api-docs/**",
+                "/doc.html",
+                "/webjars/**"
                 );
         // 登录和注册为接口不拦截
         registry.addInterceptor(loginInterceptor)

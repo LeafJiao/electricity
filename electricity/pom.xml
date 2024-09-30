@@ -23,7 +23,7 @@
         <hutool.version>5.8.25</hutool.version>
         <fastjson2.version>2.0.46</fastjson2.version>
         <aliyunSms.version>3.0.0</aliyunSms.version>
-        <knife4j.version>4.5.0</knife4j.version>
+        <knife4j.version>4.4.0</knife4j.version>
     </properties>
 
     <dependencies>
@@ -132,12 +132,33 @@
             <version>${knife4j.version}</version>
         </dependency>
 
+
         <!--阿里云短信-->
         <dependency>
             <groupId>com.aliyun</groupId>
             <artifactId>dysmsapi20170525</artifactId>
             <version>${aliyunSms.version}</version>
         </dependency>
+
+        <!--类型转换器-->
+<!--        <dependency>-->
+<!--            <groupId>org.mapstruct</groupId>-->
+<!--            <artifactId>mapstruct</artifactId>-->
+<!--            <version>${mapstruct.version}</version>-->
+<!--        </dependency>-->
+        <!--MapStruct 依赖-->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.4.1.Final</version>
+        </dependency>
+        <!--MapStruct 注解处理器-->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>1.4.1.Final</version>
+        </dependency>
+
     </dependencies>
 
     <build>

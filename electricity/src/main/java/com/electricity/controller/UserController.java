@@ -26,7 +26,7 @@ import java.util.Map;
 public class UserController {
 
     @Resource
-    private UserService blogUserService;
+    private UserService userService;
 
     /**
      * 注册
@@ -36,14 +36,14 @@ public class UserController {
     @Operation(summary = "用户注册")
     @PostMapping("/register")
     public Result register(@RequestBody Map<String, String> user) {
-        blogUserService.register(user.get("phone"), user.get("password"));
+        userService.register(user.get("phone"), user.get("password"));
         return Result.success();
     }
 
     @Operation(summary = "用户登录")
     @PostMapping("/login")
     public Result login(@RequestBody UserDto userDto) {
-        TokenVo tokenVo = blogUserService.login(userDto);
+        TokenVo tokenVo = userService.login(userDto);
         return Result.success(tokenVo);
     }
 
