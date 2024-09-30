@@ -23,13 +23,13 @@
     </sql>
 
 
-    <select id="getUserByUserName" resultType="com.electricity.model.entity.User">
+    <select id="getUserByPhone" resultType="com.electricity.model.entity.User">
         SELECT
             <include refid="Base_Column_List"/>
         FROM
             user
         WHERE
-            username = #{username}
+            phone = #{phone}
     </select>
 
 

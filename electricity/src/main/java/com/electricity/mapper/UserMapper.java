@@ -13,7 +13,7 @@ public interface UserMapper extends BaseMapper<User> {
      * @param phone
      * @return
      */
-    User getUserByUserName(String phone);
+    User getUserByPhone(String phone);
 
     /**
      * 注册

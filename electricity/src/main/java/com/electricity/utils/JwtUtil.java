@@ -16,7 +16,7 @@ import java.util.*;
 public class JwtUtil {
 
     // 有效期为
-    public static final Long JWT_TTL = (long) (1000 * 60 * 60 * 24); //一天
+    public static final Long JWT_TTL = (long) (1000 * 60 * 60); //一天
 
     // 设置密钥明文 新版本必须大于256字节
     public static final String JWT_KEY = "1212121hsodhsdhasdhsaldhsalhdlsahdlsadfhgfhgfhgfhfh";

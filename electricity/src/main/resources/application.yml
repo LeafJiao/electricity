@@ -4,12 +4,12 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/cloud?serverTimezone=Asia/Shanghai
     username: root
     password: root
   data:
     redis:
-      host: 192.168.119.128
+      host: 192.168.119.129
       port: 6379
       password: root
 

@@ -20,9 +20,7 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Title: BlogUserServiceImpl
  * @Author JiaoWei
- * @Package com.myblog.service.impl
  * @Date 2024/3/9 16:12
  * @description: 用户服务实现
  */
@@ -37,7 +35,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public void register(String phone, String password) {
-        User user = userMapper.getUserByUserName(phone);
+        User user = userMapper.getUserByPhone(phone);
         if (user != null) {
             throw new GlobalException("该用户已存在");
         }
@@ -57,7 +55,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public TokenVo login(UserDto userDto) {
-        User user = userMapper.getUserByUserName(userDto.getPhone());
+        User user = userMapper.getUserByPhone(userDto.getPhone());
         if (user == null) {
             throw new GlobalException("账号不存在");
         }
