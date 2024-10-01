@@ -7,6 +7,7 @@ import io.jsonwebtoken.Claims;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
@@ -20,6 +21,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
  * @description: 登录拦截器
  */
 @Component
+@Slf4j
 public class LoginInterceptor implements HandlerInterceptor {
 
     @Resource
@@ -44,6 +46,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             //放行
             return true;
         } catch (Exception e) {
+            log.warn("路径:{}", request.getRequestURI());
             throw new GlobalException("用户未登录");
         }
     }

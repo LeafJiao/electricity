@@ -35,6 +35,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         Collections.addAll(excludePath,
                 "/user/register",
                 "/user/login",
+                "/favicon.ico",
                 "/swagger-ui/**",
                 "/swagger-resources/**",
                 "/v3/api-docs/**",
