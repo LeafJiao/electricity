@@ -9,57 +9,62 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- *
- * @TableName user
+ * 
+ * @TableName user_order
  */
-@TableName(value ="user")
+@TableName(value ="user_order")
 @Data
-public class User implements Serializable {
+public class UserOrder implements Serializable {
     /**
-     * 用户id
+     * 订单id
      */
     @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
-     * 用户手机号
+     * 企业id
      */
-    private String phone;
+    private Long userId;
 
     /**
-     * 密码
+     * 订单日期
      */
-    private String password;
+    private Date date;
 
     /**
-     * 用户名
+     * 户号
      */
-    private String username;
+    private String account;
 
     /**
-     * 头像
+     * 费用
      */
-    private String avatar;
+    private Double expenses;
+
+    /**
+     * 电量
+     */
+    private Double electricity;
+
+    /**
+     * 出售价格
+     */
+    private Double sellPrice;
+
+    /**
+     * 支付方式
+     */
+    private String payStyle;
 
     /**
      * 创建时间
      */
-    private Date createTime;
+    private Date creatTime;
 
     /**
-     * 更新时间
+     * 更改时间
      */
     private Date updateTime;
-
-    /**
-     * 邮箱
-     */
-    private String email;
-
-    /**
-     * 逻辑删除 0-未删除, 1-删除
-     */
-    private Integer isDelete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

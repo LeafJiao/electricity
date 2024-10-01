@@ -44,8 +44,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         newUser.setPassword(Md5Util.getMD5String(password));
         newUser.setUsername(UserConstants.username);
         newUser.setAvatar(UserConstants.avatar);
-        newUser.setCreate_time(new Date());
-        newUser.setUpdate_time(new Date());
+        newUser.setCreateTime(new Date());
+        newUser.setUpdateTime(new Date());
 
         int i = userMapper.registerUser(newUser);
         if (i != 1) {
@@ -67,7 +67,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             String token = JwtUtil.createJWT(String.valueOf(user.getId()));
             // 将token存入redis
             ValueOperations<String, String> opsForValue = stringRedisTemplate.opsForValue();
-            opsForValue.set(token, token, 1, TimeUnit.DAYS);
+            opsForValue.set(token, token, 1, TimeUnit.HOURS);
             String refreshToken = JwtUtil.refreshToken(token);
             Date expireTime = new Date(System.currentTimeMillis() + JwtUtil.JWT_TTL);
             // 返回token

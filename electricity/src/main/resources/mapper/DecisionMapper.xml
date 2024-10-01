@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.electricity.mapper.DecisionMapper">
+
+    <resultMap id="BaseResultMap" type="com.electricity.model.entity.Decision">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="user_id" column="user_id" jdbcType="BIGINT"/>
+            <result property="electricity" column="electricity" jdbcType="DOUBLE"/>
+            <result property="price" column="price" jdbcType="DOUBLE"/>
+            <result property="type" column="type" jdbcType="INTEGER"/>
+            <result property="date" column="date" jdbcType="TIMESTAMP"/>
+            <result property="priceType" column="price_type" jdbcType="INTEGER"/>
+            <result property="people" column="people" jdbcType="INTEGER"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,electricity,
+        price,type,date,
+        price_type,people,create_time,
+        update_time
+    </sql>
+</mapper>

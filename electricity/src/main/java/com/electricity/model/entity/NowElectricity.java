@@ -9,57 +9,37 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- *
- * @TableName user
+ * 
+ * @TableName now_electricity
  */
-@TableName(value ="user")
+@TableName(value ="now_electricity")
 @Data
-public class User implements Serializable {
+public class NowElectricity implements Serializable {
     /**
-     * 用户id
+     * 
      */
     @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
-     * 用户手机号
+     * 实时电价
      */
-    private String phone;
+    private Double price;
 
     /**
-     * 密码
+     * 0-历史电价，1-预测电价
      */
-    private String password;
+    private Integer descript;
 
     /**
-     * 用户名
-     */
-    private String username;
-
-    /**
-     * 头像
-     */
-    private String avatar;
-
-    /**
-     * 创建时间
+     * 
      */
     private Date createTime;
 
     /**
-     * 更新时间
+     * 
      */
     private Date updateTime;
-
-    /**
-     * 邮箱
-     */
-    private String email;
-
-    /**
-     * 逻辑删除 0-未删除, 1-删除
-     */
-    private Integer isDelete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

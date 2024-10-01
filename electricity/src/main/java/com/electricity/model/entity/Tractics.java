@@ -9,57 +9,57 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- *
- * @TableName user
+ * 
+ * @TableName tractics
  */
-@TableName(value ="user")
+@TableName(value ="tractics")
 @Data
-public class User implements Serializable {
+public class Tractics implements Serializable {
     /**
-     * 用户id
+     * 
      */
     @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
-     * 用户手机号
+     * 
      */
-    private String phone;
+    private Long userId;
 
     /**
-     * 密码
+     * 
      */
-    private String password;
+    private Double electricity;
 
     /**
-     * 用户名
+     * 
      */
-    private String username;
+    private Double purchasedPrice;
 
     /**
-     * 头像
+     * 
      */
-    private String avatar;
+    private Double soldedPrice;
 
     /**
-     * 创建时间
+     * 
+     */
+    private Double profit;
+
+    /**
+     * 
+     */
+    private Double accuracy;
+
+    /**
+     * 
      */
     private Date createTime;
 
     /**
-     * 更新时间
+     * 
      */
     private Date updateTime;
-
-    /**
-     * 邮箱
-     */
-    private String email;
-
-    /**
-     * 逻辑删除 0-未删除, 1-删除
-     */
-    private Integer isDelete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

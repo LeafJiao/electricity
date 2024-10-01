@@ -9,57 +9,42 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- *
- * @TableName user
+ * 
+ * @TableName peopole
  */
-@TableName(value ="user")
+@TableName(value ="peopole")
 @Data
-public class User implements Serializable {
+public class Peopole implements Serializable {
     /**
-     * 用户id
+     * 
      */
     @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
-     * 用户手机号
+     * 
      */
-    private String phone;
+    private Long tracticsId;
 
     /**
-     * 密码
+     * 
      */
-    private String password;
+    private Date date;
 
     /**
-     * 用户名
+     * 
      */
-    private String username;
+    private Long number;
 
     /**
-     * 头像
-     */
-    private String avatar;
-
-    /**
-     * 创建时间
+     * 
      */
     private Date createTime;
 
     /**
-     * 更新时间
+     * 
      */
     private Date updateTime;
-
-    /**
-     * 邮箱
-     */
-    private String email;
-
-    /**
-     * 逻辑删除 0-未删除, 1-删除
-     */
-    private Integer isDelete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

@@ -6,60 +6,49 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
+
+import com.electricity.constant.BaseConstant;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 /**
- *
- * @TableName user
+ * 
+ * @TableName electricity
  */
-@TableName(value ="user")
+@TableName(value ="electricity")
 @Data
-public class User implements Serializable {
+public class Electricity implements Serializable {
     /**
-     * 用户id
+     * 
      */
     @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
-     * 用户手机号
+     * 
      */
-    private String phone;
+    private Double lowest;
 
     /**
-     * 密码
+     * 
      */
-    private String password;
+    private Double middle;
 
     /**
-     * 用户名
+     * 
      */
-    private String username;
+    private Double highest;
 
     /**
-     * 头像
+     * 
      */
-    private String avatar;
-
-    /**
-     * 创建时间
-     */
+    @JsonFormat(pattern = BaseConstant.TIME_FORMAT)
     private Date createTime;
 
     /**
-     * 更新时间
+     * 
      */
     private Date updateTime;
-
-    /**
-     * 邮箱
-     */
-    private String email;
-
-    /**
-     * 逻辑删除 0-未删除, 1-删除
-     */
-    private Integer isDelete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
