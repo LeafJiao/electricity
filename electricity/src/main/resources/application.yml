@@ -2,6 +2,8 @@ server:
   port: 9999
 
 spring:
+  application:
+    name: electricity
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/cloud?serverTimezone=Asia/Shanghai
@@ -9,9 +11,9 @@ spring:
     password: root
   data:
     redis:
-      host: 192.168.119.129
+      host: 116.62.4.62
       port: 6379
-      password: root
+      password: ..jiao+-58961
 
 #mybatis:
 #  configuration:

@@ -24,6 +24,8 @@
         <fastjson2.version>2.0.46</fastjson2.version>
         <aliyunSms.version>3.0.0</aliyunSms.version>
         <knife4j.version>4.4.0</knife4j.version>
+        <redission.version>3.35.0</redission.version>
+        <datatype.version>2.17.2</datatype.version>
     </properties>
 
     <dependencies>
@@ -113,6 +115,14 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
+        <!-- Redisson-->
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>${redission.version}</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -157,6 +167,13 @@
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-processor</artifactId>
             <version>1.4.1.Final</version>
+        </dependency>
+
+        <!-- 时间类型处理-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${datatype.version}</version>
         </dependency>
 
     </dependencies>
