@@ -11,9 +11,9 @@ spring:
     password: root
   data:
     redis:
-      host: 116.62.4.62
+      host: loaclhost
       port: 6379
-      password: ..jiao+-58961
+      password: root
 
 #mybatis:
 #  configuration:
@@ -26,7 +26,7 @@ mybatis-plus:
   type-aliases-package: com.electricity.entity
   mapper-locations: classpath:mapper/*.xml
   configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
   global-config:
     db-config:
