@@ -29,7 +29,7 @@ public class ElectricityJob {
     @Resource
     private ElectricityService electricityService;
 
-    @Scheduled(cron = "0 */1 * * * ?")
+//    @Scheduled(cron = "0 */1 * * * ?")
     public void predict() {
         RLock lock = redissonClient.getLock("electricity:lock");
         try {
@@ -37,14 +37,14 @@ public class ElectricityJob {
             log.warn("tryLock:{}", tryLock);
             if (tryLock) {
 //                System.out.println(electricityService.getNow());
-                log.warn("Thread.currentThread().getId(): {}", Thread.currentThread().getId());
+//                log.warn("Thread.currentThread().getId(): {}", Thread.currentThread().getId());
             }
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }finally {
             if (lock.isHeldByCurrentThread()) {
                 lock.unlock();
-                log.warn("Thread.currentThread().getId():{}", Thread.currentThread().getId());
+//                log.warn("Thread.currentThread().getId():{}", Thread.currentThread().getId());
             }
         }
     }
