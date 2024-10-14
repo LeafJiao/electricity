@@ -19,7 +19,7 @@ public class JwtUtil {
     public static final Long JWT_TTL = (long) (1000 * 60 * 60); //一天
 
     // 设置密钥明文 新版本必须大于256字节
-    public static final String JWT_KEY = "";
+    public static final String JWT_KEY = "1212121hsodhsdhasdhsaldhsalhdlsahdlsadfhgfhgfhgfhfh";
 
     /**
      用于生成uuid，用来表示唯一

@@ -15,12 +15,6 @@ import java.util.List;
 public interface NowElectricityService extends IService<NowElectricity> {
 
     /**
-     * 获取电价
-     * @return
-     */
-    List<ElectricityVo> getElec();
-
-    /**
      * 获取实时电价
      * @return
      */

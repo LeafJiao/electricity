@@ -14,7 +14,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,lowest,middle,
+        lowest,middle,
         highest,create_time,update_time
     </sql>
 

@@ -1,6 +1,6 @@
 package com.electricity.job;
 
-import com.electricity.service.ElectricityService;
+import com.electricity.service.NowElectricityService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
@@ -27,24 +27,25 @@ public class ElectricityJob {
     private RedissonClient redissonClient;
 
     @Resource
-    private ElectricityService electricityService;
+    private NowElectricityService nowElectricityService;
 
-//    @Scheduled(cron = "0 */1 * * * ?")
+    @Scheduled(cron = "0 */15 * * * ?")
     public void predict() {
         RLock lock = redissonClient.getLock("electricity:lock");
         try {
             boolean tryLock = lock.tryLock(0, -1, TimeUnit.MILLISECONDS);
             log.warn("tryLock:{}", tryLock);
             if (tryLock) {
-//                System.out.println(electricityService.getNow());
-//                log.warn("Thread.currentThread().getId(): {}", Thread.currentThread().getId());
+                // 预测电价
+                nowElectricityService.getNow();
+                log.warn("Thread.currentThread().getId(): {}", Thread.currentThread().getId());
             }
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }finally {
             if (lock.isHeldByCurrentThread()) {
                 lock.unlock();
-//                log.warn("Thread.currentThread().getId():{}", Thread.currentThread().getId());
+                log.warn("Thread.currentThread().getId():{}", Thread.currentThread().getId());
             }
         }
     }
