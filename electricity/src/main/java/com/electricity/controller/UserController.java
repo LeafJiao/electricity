@@ -40,16 +40,26 @@ public class UserController {
     @PostMapping("/register")
     public Result register(@RequestBody Map<String, String> user) {
         log.warn("用户注册信息入参：{}", user);
-        userService.register(user.get("phone"), user.get("password"));
-        return Result.success();
+        try {
+            userService.register(user.get("phone"), user.get("password"));
+            return Result.success();
+        } catch (Exception e) {
+            log.warn("用户注册异常：{}", e);
+            return Result.error(String.valueOf(e));
+        }
     }
 
     @Operation(summary = "用户登录")
     @PostMapping("/login")
     public Result login(@RequestBody UserDto userDto) {
         log.warn("UserDto:{}", userDto);
-        TokenVo tokenVo = userService.login(userDto);
-        return Result.success(tokenVo);
+        try {
+            TokenVo tokenVo = userService.login(userDto);
+            return Result.success(tokenVo);
+        } catch (Exception e) {
+            log.warn("用户登录异常：{}", e);
+            return Result.error(String.valueOf(e));
+        }
     }
 
     @GetMapping("/userInfo")

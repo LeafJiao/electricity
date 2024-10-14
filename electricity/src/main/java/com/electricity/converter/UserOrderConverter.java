@@ -1,0 +1,23 @@
+package com.electricity.converter;
+
+import com.electricity.model.entity.User;
+import com.electricity.model.entity.UserOrder;
+import com.electricity.model.vo.UserOrderVo;
+import com.electricity.model.vo.UserVo;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
+
+import java.util.List;
+
+/**
+ * @author jiaowei
+ * @since 2024/9/30 15:50
+ */
+@Mapper(componentModel = "spring")
+public interface UserOrderConverter {
+    UserOrderConverter INSTANCE = Mappers.getMapper(UserOrderConverter.class);
+
+    UserOrderVo convert(UserOrder userOrder);
+
+    List<UserOrderVo> convert(List<UserOrder> userOrders);
+}
