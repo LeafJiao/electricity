@@ -19,9 +19,9 @@ public class RedissionConfig {
     public RedissonClient redissionClient() {
         Config config = new Config();
         config.useSingleServer()
-                .setAddress("redis://116.62.4.62:6379")
+                .setAddress("")
                 .setDatabase(0)
-                .setPassword("..jiao+-58961");
+                .setPassword("");
 
         RedissonClient redissonClient = Redisson.create(config);
         return redissonClient;
