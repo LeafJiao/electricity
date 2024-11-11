@@ -1,6 +1,6 @@
 package com.electricity.interceptors;
 
-import com.electricity.exception.GlobalException;
+import com.electricity.model.exception.GlobalException;
 import com.electricity.utils.JwtUtil;
 import com.electricity.utils.ThreadLocalUtil;
 import io.jsonwebtoken.Claims;

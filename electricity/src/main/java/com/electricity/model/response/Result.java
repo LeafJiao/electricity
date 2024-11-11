@@ -1,4 +1,4 @@
-package com.electricity.model.vo;
+package com.electricity.model.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

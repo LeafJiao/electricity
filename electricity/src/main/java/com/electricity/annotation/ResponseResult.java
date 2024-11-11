@@ -1,6 +1,4 @@
-package com.electricity.anno;
-
-import org.springframework.stereotype.Indexed;
+package com.electricity.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

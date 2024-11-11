@@ -1,10 +1,11 @@
 package com.electricity.controller;
 
+import com.electricity.annotation.ResponseResult;
 import com.electricity.model.dto.UserDto;
 import com.electricity.model.entity.Electricity;
 import com.electricity.service.UserService;
 import com.electricity.utils.ThreadLocalUtil;
-import com.electricity.model.vo.Result;
+import com.electricity.model.response.Result;
 import com.electricity.model.vo.TokenVo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -79,6 +80,13 @@ public class UserController {
         electricity.setCreateTime(new Date());
         electricity.setUpdateTime(new Date());
         return Result.success(electricity);
+    }
+
+    @Operation(summary = "测试")
+    @GetMapping("/test")
+    @ResponseResult
+    public void test() {
+        log.warn("测试");
     }
 
 }

@@ -1,8 +1,7 @@
 package com.electricity.controller;
 
-import com.electricity.model.vo.Result;
+import com.electricity.model.response.Result;
 import com.electricity.service.TracticsService;
-import com.electricity.service.UserOrderService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
