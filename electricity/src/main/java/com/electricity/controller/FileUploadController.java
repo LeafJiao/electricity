@@ -1,6 +1,6 @@
 package com.electricity.controller;
 
-import com.electricity.model.vo.Result;
+import com.electricity.model.response.Result;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

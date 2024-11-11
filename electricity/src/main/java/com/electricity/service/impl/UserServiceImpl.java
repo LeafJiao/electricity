@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.electricity.model.dto.UserDto;
 import com.electricity.constant.UserConstants;
 import com.electricity.model.entity.User;
-import com.electricity.exception.GlobalException;
+import com.electricity.model.exception.GlobalException;
 import com.electricity.mapper.UserMapper;
 import com.electricity.service.UserService;
 import com.electricity.utils.JwtUtil;
