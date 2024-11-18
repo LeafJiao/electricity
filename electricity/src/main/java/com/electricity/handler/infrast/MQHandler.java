@@ -1,4 +1,4 @@
-package com.electricity.handler;
+package com.electricity.handler.infrast;
 
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.common.message.MessageExt;

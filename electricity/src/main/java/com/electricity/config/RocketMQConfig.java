@@ -2,7 +2,7 @@ package com.electricity.config;
 
 import cn.hutool.core.thread.ThreadUtil;
 import com.electricity.constant.RocketMQConstant;
-import com.electricity.handler.MQHandler;
+import com.electricity.handler.infrast.MQHandler;
 import com.electricity.listener.ConsumerListenerConcurrently;
 import jakarta.annotation.Resource;
 import lombok.Data;
@@ -45,7 +45,7 @@ public class RocketMQConfig {
      * 普通消息生产者
      * @return
      */
-    @Bean
+    @Bean("defaultMQ")
     public DefaultMQProducer defaultMQProducer() {
         DefaultMQProducer producer = new DefaultMQProducer(RocketMQConstant.group1);
         producer.setNamesrvAddr(pNamesrvAddr);
@@ -65,7 +65,7 @@ public class RocketMQConfig {
      * 事务消息生产者
      * @return
      */
-    @Bean
+    @Bean("transactionMQ")
     public TransactionMQProducer transactionMQProducer() {
         TransactionMQProducer producer = new TransactionMQProducer("transaction" + RocketMQConstant.group1);
         producer.setNamesrvAddr(pNamesrvAddr);
@@ -99,7 +99,6 @@ public class RocketMQConfig {
      * 消息消费者
      * @return
      */
-    @Bean
     public DefaultMQPushConsumer defaultMQPushConsumer() {
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer(RocketMQConstant.group1);
         consumer.setNamesrvAddr(pNamesrvAddr);

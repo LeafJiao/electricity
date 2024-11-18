@@ -2,7 +2,7 @@ package com.electricity.listener;
 
 import cn.hutool.core.util.StrUtil;
 import com.electricity.annotation.MQHandlerActualizer;
-import com.electricity.handler.MQHandler;
+import com.electricity.handler.infrast.MQHandler;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
@@ -44,13 +44,13 @@ public class ConsumerListenerConcurrently implements MessageListenerConcurrently
         // 获取消息的重试次数
         int reconsumeTimes = messageExt.getReconsumeTimes();
         if (reconsumeTimes > 2) {
-            log.warn("消息重试已经超过两次");
+            log.warn("消息重试已经超过两次: topic: {}, tag: {}, msg: {}", messageExt.getTopic(), messageExt.getTags(), new String(messageExt.getBody()));
             return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
         }
 
         String topic = messageExt.getTopic();
         String tags = messageExt.getTags();
-        log.warn("接收的消息主题为: " + topic + "; tags为: " + tags);
+        log.warn("监听器接收的消息主题为: " + topic + "; tags为: " + tags);
 
         MQHandler mqHandler = null;
         // 获取消息中的topic和tag，根据这两个值来判断消息类型，然后调用对应的handler进行处理

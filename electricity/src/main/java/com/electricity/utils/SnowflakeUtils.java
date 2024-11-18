@@ -10,7 +10,7 @@ import cn.hutool.core.util.IdUtil;
  * @author jiaowei
  * @since 2024/11/11 11:04
  */
-public class SonwflakeUtils {
+public class SnowflakeUtils {
 
     private Snowflake snowflake;
 
@@ -18,13 +18,13 @@ public class SonwflakeUtils {
      * 成员类，SonwflakeUtils的实例对象保存域
      */
     private static class IdGenHolder {
-        private static final SonwflakeUtils instance = new SonwflakeUtils();
+        private static final SnowflakeUtils instance = new SnowflakeUtils();
     }
 
     /**
      * 私有化构造函数
      */
-    private SonwflakeUtils() {
+    private SnowflakeUtils() {
         String ipv4 = NetUtil.getLocalhostStr();
         long ipLong = Long.parseLong(ipv4.replaceAll("\\.", ""));
         long wokerId = Long.hashCode(ipLong) % 32;
@@ -36,7 +36,7 @@ public class SonwflakeUtils {
      * 外部调用获取实例对对象
      * @return
      */
-    public static SonwflakeUtils getInstance() {
+    public static SnowflakeUtils getInstance() {
         return IdGenHolder.instance;
     }
 
