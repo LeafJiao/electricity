@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.TimeZone;
 
-//@Configuration
 @JsonComponent
 public class DateFormatConfig {
 
@@ -25,7 +24,7 @@ public class DateFormatConfig {
         @Bean
         public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilder() {
             return builder -> {
-                TimeZone tz = TimeZone.getTimeZone("UTC");
+                TimeZone tz = TimeZone.getTimeZone("Asia/Shanghai");
                 DateFormat df = new SimpleDateFormat(BaseConstant.TIME_FORMAT);
                 df.setTimeZone(tz);
                 builder.failOnEmptyBeans(false).failOnUnknownProperties(false)

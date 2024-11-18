@@ -29,6 +29,7 @@
         <spring.boot.configuration.version>3.3.4</spring.boot.configuration.version>
         <rocketmq.version>5.1.4</rocketmq.version>
 <!--        <rocketmq.version>4.8.0</rocketmq.version>-->
+        <elasticserach.version>7.4.2</elasticserach.version>
     </properties>
 
     <dependencies>
@@ -193,6 +194,19 @@
             <version>${rocketmq.version}</version>
         </dependency>
 
+        <!--Spring整合Kafka-->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+<!--            <version>2.7.1</version>-->
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+            <version>${elasticserach.version}</version>
+        </dependency>
 
     </dependencies>
 

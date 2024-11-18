@@ -1,7 +1,7 @@
 package com.electricity.annotation;
 
 import com.electricity.config.RocketMQConfig;
-import com.electricity.handler.impl.DefaultMQHandler;
+import com.electricity.handler.infrast.impl.DefaultMQHandler;
 import com.electricity.listener.ConsumerListenerOrderly;
 import org.springframework.context.annotation.Import;
 

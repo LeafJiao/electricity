@@ -1,5 +1,6 @@
 package com.electricity.service;
 
+import com.electricity.model.dto.TracticsElecDto;
 import com.electricity.model.entity.Tractics;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.electricity.model.vo.TracticsVo;
@@ -13,4 +14,6 @@ import java.util.List;
 */
 public interface TracticsService extends IService<Tractics> {
     List<TracticsVo> getTractics();
+
+    TracticsElecDto setTracticsElec(TracticsElecDto tracticsElecDto);
 }

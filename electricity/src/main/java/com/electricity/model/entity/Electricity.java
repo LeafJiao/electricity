@@ -42,7 +42,6 @@ public class Electricity implements Serializable {
     /**
      * 
      */
-    @JsonFormat(pattern = BaseConstant.TIME_FORMAT)
     private Date createTime;
 
     /**

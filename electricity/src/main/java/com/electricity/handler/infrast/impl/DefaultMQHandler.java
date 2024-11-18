@@ -1,6 +1,6 @@
-package com.electricity.handler.impl;
+package com.electricity.handler.infrast.impl;
 
-import com.electricity.handler.MQHandler;
+import com.electricity.handler.infrast.MQHandler;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.springframework.stereotype.Service;

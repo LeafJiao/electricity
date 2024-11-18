@@ -85,8 +85,16 @@ public class UserController {
     @Operation(summary = "测试")
     @GetMapping("/test")
     @ResponseResult
-    public void test() {
+    public Electricity test() {
         log.warn("测试");
+        Electricity electricity = new Electricity();
+        electricity.setId(0L);
+        electricity.setLowest(0.0D);
+        electricity.setMiddle(0.0D);
+        electricity.setHighest(0.0D);
+        electricity.setCreateTime(new Date());
+        electricity.setUpdateTime(new Date());
+        return electricity;
     }
 
 }

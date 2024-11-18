@@ -7,7 +7,11 @@ package com.electricity.constant;
 public enum ElectricityEnum {
     MAX_DAY("maxDay", "maxDay"),
 
-    MAX_TIME("maxTime", "maxTime");
+    MAX_TIME("maxTime", "maxTime"),
+
+    DEFAULT_ELECTRICITY("electricity", "electricity"),
+
+    DEFAULT_PRICE("price", "price");
 
 
     /**

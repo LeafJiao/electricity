@@ -11,9 +11,34 @@ spring:
     password: root
   data:
     redis:
-      host: loaclhost
+      host: 192.168.119.135
       port: 6379
       password: root
+  kafka:
+      # kafka服务器地址(可以多个)
+      bootstrap-servers: 192.168.119.135:9092
+      producer:
+          # key/value的序列化
+          key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+          value-serializer: org.apache.kafka.common.serialization.StringSerializer
+          # 返回数据形式
+          # acks: all
+          # 批量抓取
+          batch-size: 65536
+          # 缓存容量
+          buffer-memory: 524288
+          # 服务器地址
+          bootstrap-servers: 192.168.119.135:9092
+      consumer:
+          # key/value的反序列化
+          key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
+          value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+          # 指定一个默认的组名
+          group-id: kafka
+          # earliest:当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，从头开始消费
+          # latest:当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，消费新产生的该分区下的数据
+          # none:topic各分区都存在已提交的offset时，从offset后开始消费；只要有一个分区不存在已提交的offset，则抛出异常
+          auto-offset-reset: earliest
 
 #mybatis:
 #  configuration:
@@ -26,12 +51,28 @@ mybatis-plus:
   type-aliases-package: com.electricity.entity
   mapper-locations: classpath:mapper/*.xml
   configuration:
-#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
   global-config:
     db-config:
       logic-delete-value: 1
       logic-delete-field: is_delete
+
+redission:
+  address: redis://116.62.4.62:6379
+  password: root
+  database: 0
+
+rocketmq:
+  pNamesrvAddr: 192.168.119.135:9876 # 地址
+  maxMessageSize: 4096 # 消息最大大小，默认4M
+  sendMsgTimeout: 30000 # 消息发送超时时间，默认3秒
+  retryTimesWhenSendFailed: 2 # 消息发送失败重试次数，默认2次
+  consumeThreadMin: 20 # 消费者线程最小数
+  consumeThreadMax: 64 # 消费者线程最大数
+  consumeMessageBatchMaxSize: 1 # 消费者一次最多消费的消息数量，默认1条
+  topics: topic1:*;topic2:tag2 # 订阅的主题
+
 
 # springdoc-openapi项目配置
 springdoc:
